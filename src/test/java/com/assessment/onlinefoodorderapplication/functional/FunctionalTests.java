@@ -187,7 +187,6 @@ public class FunctionalTests {
 
 	@Test
 	public void testUpdateDish() throws IOException {
-//		Dish dish = new Dish(1, "Pizza", "Dough, Cheese", 1);
 
 		Restaurant restaurant = new Restaurant(1, "Restaurant A", MasterData.getAllDishes(), "123");
 		restaurantDAO.createRestaurant(restaurant);
@@ -246,7 +245,6 @@ public class FunctionalTests {
 		Restaurant restaurant = new Restaurant(1, "Restaurant A", MasterData.getAllDishes(), "123");
 		restaurantDAO.createRestaurant(restaurant);
 		Restaurant retrievedRestaurant = restaurantDAO.getRestaurantById(restaurant.getId());
-//		Assertions.assertEquals(restaurant, retrievedRestaurant);
 		try {
 			yakshaAssert(currentTest(), restaurant.getName().equals(retrievedRestaurant.getName()) ? true : false,
 					businessTestFile);
@@ -260,7 +258,6 @@ public class FunctionalTests {
 		Restaurant restaurant = new Restaurant(1, "Restaurant B", MasterData.getAllDishes(), "456");
 		restaurantDAO.createRestaurant(restaurant);
 		Restaurant retrievedRestaurant = restaurantDAO.getRestaurantById(restaurant.getId());
-//		Assertions.assertEquals(restaurant, retrievedRestaurant);
 		try {
 			yakshaAssert(currentTest(), restaurant.getName().equals(retrievedRestaurant.getName()) ? true : false,
 					businessTestFile);
@@ -276,9 +273,7 @@ public class FunctionalTests {
 		restaurantDAO.createRestaurant(restaurant1);
 		restaurantDAO.createRestaurant(restaurant2);
 		List<Restaurant> restaurants = restaurantDAO.getAllRestaurants();
-//		Assertions.assertEquals(2, restaurants.size());
-//		Assertions.assertTrue(restaurants.contains(restaurant1));
-//		Assertions.assertTrue(restaurants.contains(restaurant2));
+
 		try {
 			yakshaAssert(currentTest(), restaurants.get(0).getName().equals(restaurant1.getName()) ? true : false,
 					businessTestFile);
@@ -296,7 +291,6 @@ public class FunctionalTests {
 		restaurant.setName("Updated Restaurant A");
 		restaurantDAO.updateRestaurant(restaurant);
 		Restaurant updatedRestaurant = restaurantDAO.getRestaurantById(restaurant.getId());
-//		Assertions.assertEquals("Updated Restaurant A", updatedRestaurant.getName());
 		try {
 			yakshaAssert(currentTest(), updatedRestaurant.getName().equals("Updated Restaurant A") ? true : false,
 					businessTestFile);
@@ -311,7 +305,6 @@ public class FunctionalTests {
 		restaurantDAO.createRestaurant(restaurant);
 		boolean isDeleted = restaurantDAO.deleteRestaurant(restaurant.getId());
 		Restaurant deletedRestaurant = restaurantDAO.getRestaurantById(restaurant.getId());
-//		Assertions.assertNull(deletedRestaurant);
 		try {
 			yakshaAssert(currentTest(), isDeleted == true && deletedRestaurant == null ? true : false,
 					businessTestFile);
@@ -327,8 +320,6 @@ public class FunctionalTests {
 		restaurantDAO.createRestaurant(restaurant1);
 		restaurantDAO.createRestaurant(restaurant2);
 		List<Restaurant> restaurants = restaurantDAO.searchRestaurantsByName("Restaurant A");
-//		Assertions.assertEquals(1, restaurants.size());
-//		Assertions.assertEquals(restaurant1, restaurants.get(0));
 		try {
 			yakshaAssert(currentTest(), restaurants.size() == 1 ? true : false, businessTestFile);
 			yakshaAssert(currentTest(), restaurants.get(0).getName().equals(restaurant1.getName()) ? true : false,
@@ -345,8 +336,6 @@ public class FunctionalTests {
 		restaurantDAO.createRestaurant(restaurant1);
 		restaurantDAO.createRestaurant(restaurant2);
 		List<Restaurant> restaurants = restaurantDAO.searchRestaurantsByLocation("456");
-//		Assertions.assertEquals(1, restaurants.size());
-//		Assertions.assertEquals(restaurant2, restaurants.get(0));
 		try {
 			yakshaAssert(currentTest(),
 					restaurants.size() == 1 && restaurants.get(0).getName().equals(restaurant2.getName()) ? true
