@@ -42,10 +42,6 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 		return false;
 	}
 
-	private List<Dish> getDishesByRestaurantId(int restaurantId) {
-		return null;
-	}
-
 	@Override
 	public List<Restaurant> searchRestaurantsByName(String name) {
 		return null;
@@ -58,10 +54,6 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 
 	@Override
 	public List<Restaurant> searchRestaurantsByDishName(String dishName) {
-		return null;
-	}
-
-	private List<Dish> getDishesForRestaurant(int restaurantId) {
 		return null;
 	}
 
